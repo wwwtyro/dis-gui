@@ -1,0 +1,54 @@
+{
+  "name": "dis-gui",
+  "version": "1.0.0",
+  "description": "An extensible, styleable, & React-based controller library inspired by the venerable dat-gui.",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo example/main.js:bundle.js -d example --live -- -t [ babelify --presets [ es2015 react ] ]",
+    "build": "browserify example/main.js -o gh-pages/bundle.js -t [ babelify --presets [ es2015 react ] ]"
+  },
+  "license": "Unlicense",
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.0",
+    "sprintf": "^0.1.5"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0",
+    "react-addons-update": "^15.3.1",
+    "react-dom": "^15.3.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "budo": "^9.0.0",
+    "gl-mat4": "^1.1.4",
+    "react": "^15.3.0",
+    "react-addons-update": "^15.3.1",
+    "react-dom": "^15.3.0",
+    "regl": "^1.1.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "dat-gui",
+    "dis-gui",
+    "react",
+    "widget",
+    "control"
+  ],
+  "author": "Rye Terrell <ryeterrell@ryeterrell.net>"
+}
