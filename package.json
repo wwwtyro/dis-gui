@@ -50,5 +50,16 @@
     "widget",
     "control"
   ],
-  "author": "Rye Terrell <ryeterrell@ryeterrell.net>"
+  "author": "Rye Terrell <ryeterrell@ryeterrell.net>",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwwtyro/dis-gui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wwwtyro/dis-gui/issues"
+  },
+  "homepage": "https://github.com/wwwtyro/dis-gui#readme"
 }

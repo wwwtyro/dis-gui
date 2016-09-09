@@ -34,6 +34,12 @@ import * as dg from 'dis-gui';
 </dg.GUI>
 ```
 
+## Installation
+
+`npm install dis-gui`
+
+> Note: dis-gui has peer dependencies react@^15.3.0 react-addons-update@^15.3.1 react-dom@^15.3.0
+
 ## Events
 
 The **onChange** event is fired when a control's value changes:
