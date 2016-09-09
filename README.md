@@ -34,6 +34,10 @@ import * as dg from 'dis-gui';
 </dg.GUI>
 ```
 
+## Demo
+
+Try out the [live demo](https://wwwtyro.github.io/dis-gui).
+
 ## Installation
 
 `npm install dis-gui`
