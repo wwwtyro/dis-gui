@@ -332,3 +332,7 @@ clicks it or if you add the **expanded** boolean property set to **true**:
 <p align="center">
   <img src='media/gradient-expanded.png'/>
 </p>
+
+## Roadmap
+
+* Add documentation about extending `dis-gui`.
