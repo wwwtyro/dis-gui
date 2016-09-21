@@ -28,7 +28,7 @@ window.onload = function() {
 
   // Initialize the control variables.
   let text = 'dis-gui';
-  let textColor = {red: 0, green: 0, blue: 0};
+  let textColor = {red: 255, green: 255, blue: 255};
   let scale = 3.0;
   let initialStops = gradient.random();
   let noise = 'Smooth';
