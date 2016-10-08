@@ -66,7 +66,7 @@ window.onload = function() {
   function onChangeTextColor(value) {
     let style = document.getElementById('text').style;
     let color = `rgb(${value.red}, ${value.green}, ${value.blue})`;
-    style.color = color;
+    style.color = 'black';
     style.textShadow = `${color} 0 0 128px, ${color} 0 0 64px, ${color} 0 0 32px, ${color} 0 0 16px, ${color} 0 0 8px`;
   }
 

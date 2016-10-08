@@ -6,6 +6,13 @@ import {Row, Label, Control} from './components';
 
 export default class Text extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.value
+    };
+  }
+
   render() {
     return (
       <Row>
@@ -13,7 +20,7 @@ export default class Text extends React.Component {
         <Control>
           <input
             type='text'
-            defaultValue={this.props.value}
+            value={this.state.value}
             onChange={this.handleChange.bind(this)}
             onBlur={this.onBlur.bind(this)}
             onKeyDown={this.onKeyDown.bind(this)}
@@ -32,6 +39,14 @@ export default class Text extends React.Component {
     )
   }
 
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        value: nextProps.value,
+      });
+    }
+  }
+
   onKeyDown(e) {
     if(e.which === 13) {
       if (this.props.onFinishChange) {
@@ -47,6 +62,9 @@ export default class Text extends React.Component {
   }
 
   handleChange(e) {
+    this.setState({
+      value: e.target.value
+    });
     if (this.props.onChange) {
       this.props.onChange(e.target.value);
     }

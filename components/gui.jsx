@@ -37,6 +37,13 @@ export default class GUI extends React.Component {
   }
 
   render() {
+    let noSelect = {
+      WebkitUserSelect: 'none',
+      MozUserSelect: 'none',
+      msUserSelect: 'none',
+      userSelect: 'none',
+      MozAppearance: 'none',
+    }
     let style = {
       position: 'fixed',
     };
@@ -70,8 +77,8 @@ export default class GUI extends React.Component {
                 cursor: 'pointer',
               }}
             >
-              {this.state.expanded && <span>Close Controls</span>}
-              {!this.state.expanded && <span>Open Controls</span>}
+              {this.state.expanded && <span style={noSelect}>Close Controls</span>}
+              {!this.state.expanded && <span style={noSelect}>Open Controls</span>}
             </div>
         </Row>
       </div>
