@@ -4,7 +4,7 @@ import React from 'react';
 import update from 'react-addons-update';
 
 import {Row, Label, Control, ColorRange} from '../components';
-import Stop from './stop.jsx';
+import Stop from './stop.js';
 
 export default class Gradient extends React.Component {
 

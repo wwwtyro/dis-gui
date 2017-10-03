@@ -1,12 +1,12 @@
 
-import GUI from './gui.jsx';
-import Folder from './folder.jsx';
-import Button from './button.jsx';
-import Checkbox from './checkbox.jsx';
-import Color from './color.jsx';
-import Number from './number.jsx';
-import Select from './select.jsx';
-import Text from './text.jsx';
+import GUI from './gui.js';
+import Folder from './folder.js';
+import Button from './button.js';
+import Checkbox from './checkbox.js';
+import Color from './color.js';
+import Number from './number.js';
+import Select from './select.js';
+import Text from './text.js';
 import {Gradient} from './gradient';
 
 export {

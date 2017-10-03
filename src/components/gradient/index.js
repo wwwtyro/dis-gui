@@ -1,3 +1,3 @@
-import Gradient from './gradient.jsx';
+import Gradient from './gradient.js';
 
 export {Gradient};

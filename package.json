@@ -1,6 +1,6 @@
 {
   "name": "@loopmode/dis-gui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An extensible, styleable, & React-based controller library inspired by the venerable dat-gui.",
   "main": "lib/index.js",
   "scripts": {

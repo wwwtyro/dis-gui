@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import Number from './number.jsx';
-import Range from './range.jsx';
+import Number from './number.js';
+import Range from './range.js';
 
 export default class NumberRange extends React.Component {
 

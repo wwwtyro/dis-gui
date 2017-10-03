@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NumberRange from './number-range.jsx';
+import NumberRange from './number-range.js';
 
 export default class ColorRange extends React.Component {
 

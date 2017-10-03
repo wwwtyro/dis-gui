@@ -1,10 +1,10 @@
-import Row from './row.jsx';
-import Label from './label.jsx';
-import Control from './control.jsx';
-import Number from './number.jsx';
-import Range from './range.jsx';
-import NumberRange from './number-range.jsx';
-import ColorRange from './color-range.jsx';
+import Row from './row.js';
+import Label from './label.js';
+import Control from './control.js';
+import Number from './number.js';
+import Range from './range.js';
+import NumberRange from './number-range.js';
+import ColorRange from './color-range.js';
 
 export {
   Row, Label, Control, Number, Range, NumberRange, ColorRange,
