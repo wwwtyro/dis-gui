@@ -6,7 +6,8 @@
   "scripts": {
     "start": "budo example/main.js:bundle.js -d example --live -- -t [ babelify --presets [ es2015 react ] ]",
     "build:example": "browserify example/main.js -o gh-pages/bundle.js -t [ babelify --presets [ es2015 react ] ]",
-    "build": "babel src --out-dir lib"
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "yarn build"
   },
   "license": "Unlicense",
   "dependencies": {
