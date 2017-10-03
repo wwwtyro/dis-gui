@@ -5,7 +5,7 @@ import React from 'react';
 import Number from './number.js';
 import Range from './range.js';
 
-export default class NumberRange extends React.Component {
+export default class NumberRange extends React.PureComponent {
 
   constructor(props) {
     super(props);

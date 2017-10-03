@@ -3,7 +3,7 @@
 import React from 'react';
 import sprintf from 'sprintf';
 
-export default class Number extends React.Component {
+export default class Number extends React.PureComponent {
 
   constructor(props) {
     super(props);

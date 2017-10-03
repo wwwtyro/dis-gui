@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Range extends React.Component {
+export default class Range extends React.PureComponent {
 
   constructor(props) {
     super(props);

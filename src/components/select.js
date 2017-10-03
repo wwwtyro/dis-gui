@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Row, Label, Control} from './components';
 
-export default class Select extends React.Component {
+export default class Select extends React.PureComponent {
 
   constructor(props) {
     super(props);

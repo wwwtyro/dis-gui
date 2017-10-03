@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Stop extends React.Component {
+export default class Stop extends React.PureComponent {
 
   render() {
     let selectScale = this.props.selected ? 1.25 : 1;

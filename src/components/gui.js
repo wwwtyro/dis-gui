@@ -22,7 +22,7 @@ let defaultStyle = {
   },
 };
 
-export default class GUI extends React.Component {
+export default class GUI extends React.PureComponent {
 
   constructor(props) {
     super(props);

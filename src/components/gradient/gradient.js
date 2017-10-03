@@ -6,7 +6,7 @@ import update from 'immutability-helper';
 import {Row, Label, Control, ColorRange} from '../components';
 import Stop from './stop.js';
 
-export default class Gradient extends React.Component {
+export default class Gradient extends React.PureComponent {
 
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Control extends React.Component {
+export default class Control extends React.PureComponent {
 
   render() {
     return (

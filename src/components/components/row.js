@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Row extends React.Component {
+export default class Row extends React.PureComponent {
 
   render() {
     return (

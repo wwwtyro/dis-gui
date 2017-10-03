@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Label extends React.Component {
+export default class Label extends React.PureComponent {
 
   render() {
     return (

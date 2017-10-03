@@ -6,7 +6,7 @@ import cloneDeep from 'lodash.clonedeep';
 
 import Row from './components';
 
-export default class Folder extends React.Component {
+export default class Folder extends React.PureComponent {
 
   constructor(props) {
     super(props);

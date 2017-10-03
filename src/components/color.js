@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Row, Label, Control, ColorRange} from './components';
 
-export default class Color extends React.Component {
+export default class Color extends React.PureComponent {
 
   constructor(props) {
     super(props);

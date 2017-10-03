@@ -1,3 +1,7 @@
+# 2.0.5
+
+- Use PureComponent
+
 # 2.0.4
 
 - Implement missing componentWillReceiveProps -> state updates

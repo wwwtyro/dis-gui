@@ -2,7 +2,7 @@ import React from 'react';
 
 import NumberRange from './number-range.js';
 
-export default class ColorRange extends React.Component {
+export default class ColorRange extends React.PureComponent {
 
   render() {
     return (

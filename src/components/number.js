@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Row, Label, Control, Number as NumberInput, NumberRange} from './components';
 
-export default class Number extends React.Component {
+export default class Number extends React.PureComponent {
 
   constructor(props) {
     super(props);

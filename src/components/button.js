@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Row, Label, Control} from './components';
 
-export default class Button extends React.Component {
+export default class Button extends React.PureComponent {
 
   render() {
     return (
