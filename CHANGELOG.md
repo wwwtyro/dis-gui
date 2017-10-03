@@ -1,3 +1,11 @@
+# 2.0.2
+
+- add prepublish script to build - forgot to build 2.0.1 last time :)
+
+# 2.0.1
+
+- change extensions to .js
+
 # 2.0.0
 
 - change name to @loopmode/dis-gui
@@ -5,7 +13,3 @@
 - transpile into /lib
 - publish /lib
 - transpile with babel
-
-# 2.0.1
-
-- change extensions to .js
