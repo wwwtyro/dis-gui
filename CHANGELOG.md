@@ -1,5 +1,9 @@
 # 2.0.2
 
+- Drop deprecated `react-addons-update`, use `immutability-helper` instead
+
+# 2.0.2
+
 - add prepublish script to build - forgot to build 2.0.1 last time :)
 
 # 2.0.1
