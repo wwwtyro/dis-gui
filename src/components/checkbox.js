@@ -13,6 +13,14 @@ export default class Checkbox extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.checked !== this.props.checked) {
+      if (nextProps.checked !== this.state.checked) {
+        this.setState({checked: nextProps.checked});
+      }
+    }
+  }
+
   render() {
     return (
       <Row>

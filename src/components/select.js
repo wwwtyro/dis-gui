@@ -13,6 +13,14 @@ export default class Select extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.options !== this.props.options) {
+      if (nextProps.options !== this.state.options) {
+        this.setState({options: nextProps.options});
+      }
+    }
+  }
+
   render() {
     return (
       <Row>

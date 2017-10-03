@@ -16,6 +16,38 @@ export default class Color extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    const nextState = {};
+    let hasChange = false;
+    if (nextProps.red !== this.props.red) {
+      if (nextProps.red !== this.state.red) {
+        nextState.red = nextProps.red;
+        hasChange = true;
+      }
+    }
+    if (nextProps.green !== this.props.green) {
+      if (nextProps.green !== this.state.green) {
+        nextState.green = nextProps.green;
+        hasChange = true;
+      }
+    }
+    if (nextProps.blue !== this.props.blue) {
+      if (nextProps.blue !== this.state.blue) {
+        nextState.blue = nextProps.blue;
+        hasChange = true;
+      }
+    }
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        nextState.expanded = nextProps.expanded;
+        hasChange = true;
+      }
+    }
+    if (hasChange) {
+      this.setState(nextState);
+    }
+  }
+
   render() {
     return (
         <Row>

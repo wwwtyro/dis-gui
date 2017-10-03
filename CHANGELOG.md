@@ -1,3 +1,7 @@
+# 2.0.4
+
+- Implement missing componentWillReceiveProps -> state updates
+
 # 2.0.2
 
 - Drop deprecated `react-addons-update`, use `immutability-helper` instead

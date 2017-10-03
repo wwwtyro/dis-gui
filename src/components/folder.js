@@ -15,6 +15,14 @@ export default class Folder extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        this.setState({expanded: nextProps.expanded});
+      }
+    }
+  }
+
   render() {
     let rightDisplay = this.state.expanded ? 'none' : 'inline-block';
     let downDisplay = this.state.expanded ? 'inline-block' : 'none';

@@ -36,6 +36,14 @@ export default class GUI extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        this.setState({expanded: nextProps.expanded});
+      }
+    }
+  }
+
   render() {
     let noSelect = {
       WebkitUserSelect: 'none',
