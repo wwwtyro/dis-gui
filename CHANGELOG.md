@@ -1,3 +1,11 @@
+# 2.0.9
+
+- Support top-level className prop
+
+# 2.0.8
+
+- Use `prop-types` instead of deprecated `React.PropTypes`
+
 # 2.0.7
 
 - Folders provide subscription function via context, children may register for updates on expand/collapse

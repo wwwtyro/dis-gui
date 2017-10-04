@@ -72,7 +72,7 @@ export default class GUI extends React.PureComponent {
       style.top = '0px';
     }
     return (
-      <div style={style}>
+      <div style={style} className={this.props.className}>
         <div style={{display: this.state.expanded ? 'block' : 'none'}}>
           {this.props.children}
         </div>
@@ -112,6 +112,7 @@ export default class GUI extends React.PureComponent {
 GUI.propTypes = {
   style: PropTypes.object,
   expanded: PropTypes.bool,
+  className: PropTypes.string
 };
 
 GUI.defaultProps = {
