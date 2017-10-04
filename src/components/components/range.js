@@ -60,7 +60,15 @@ export default class Range extends React.PureComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => this.updateLayout());
+    this.updateLayout();
+    if (this.context.folder) {
+      this.unsubscribeFolder = this.context.folder.subscribe((expanded) => {
+        if (expanded) this.forceUpdate();
+      })
+    }
+  }
+  componentWillUnmount() {
+    if (this.unsubscribeFolder) this.unsubscribeFolder();
   }
 
   updateLayout() {
@@ -156,5 +164,8 @@ Range.defaultProps = {
 };
 
 Range.contextTypes = {
-  style: React.PropTypes.object
+  style: React.PropTypes.object,
+  folder: React.PropTypes.shape({
+    subscribe: React.PropTypes.func
+  }),
 }

@@ -10,9 +10,16 @@ export default class Folder extends React.PureComponent {
 
   constructor(props) {
     super(props);
+    this.subscriptions = [];
     this.state = {
       expanded: this.props.expanded,
     }
+  }
+  subscribe(fn) {
+    this.subscriptions.push(fn)
+  }
+  unsubscribe(fn) {
+    this.subscriptions.splice(this.subscriptions.indexOf(fn), 1);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,6 +27,11 @@ export default class Folder extends React.PureComponent {
       if (nextProps.expanded !== this.state.expanded) {
         this.setState({expanded: nextProps.expanded});
       }
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.expanded !== this.state.expanded) {
+      this.subscriptions.forEach(fn => fn(this.state.expanded));
     }
   }
 
@@ -102,6 +114,12 @@ export default class Folder extends React.PureComponent {
     return merge(cloneDeep(this.context), {
       style: {
         labelWidth: this.context.style.labelWidth - 4,
+      },
+      folder: {
+        subscribe: (fn) => {
+          this.subscribe(fn);
+          return () => this.unsubscribe(fn);
+        }
       }
     });
   }
@@ -133,7 +151,10 @@ Folder.defaultProps = {
 };
 
 Folder.childContextTypes = {
-  style: React.PropTypes.object
+  style: React.PropTypes.object,
+  folder: React.PropTypes.shape({
+    subscribe: React.PropTypes.func
+  })
 };
 
 Folder.contextTypes = {

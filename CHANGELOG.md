@@ -1,3 +1,8 @@
+# 2.0.7
+
+- Folders provide subscription function via context, children may register for updates on expand/collapse
+- Fix initial layout issue of `number-range` nested in folder via subscription 
+
 # 2.0.6
 
 - Defer initial layouting after mount `number-range` (workaround for invalid initial thumb position before first update)
