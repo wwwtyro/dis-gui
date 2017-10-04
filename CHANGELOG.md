@@ -1,3 +1,7 @@
+# 2.0.6
+
+- Defer initial layouting after mount `number-range` (workaround for invalid initial thumb position before first update)
+
 # 2.0.5
 
 - Use PureComponent

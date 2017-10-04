@@ -60,7 +60,7 @@ export default class Range extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.updateLayout();
+    setTimeout(() => this.updateLayout());
   }
 
   updateLayout() {
