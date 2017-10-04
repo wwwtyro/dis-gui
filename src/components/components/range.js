@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 export default class Range extends React.PureComponent {
@@ -150,13 +152,13 @@ export default class Range extends React.PureComponent {
 }
 
 Range.propTypes = {
-  value: React.PropTypes.number.isRequired,
-  min: React.PropTypes.number.isRequired,
-  max: React.PropTypes.number.isRequired,
-  step: React.PropTypes.number,
-  width: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  OnFinishChange: React.PropTypes.func,
+  value: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number,
+  width: PropTypes.string,
+  onChange: PropTypes.func,
+  OnFinishChange: PropTypes.func,
 }
 
 Range.defaultProps = {
@@ -164,8 +166,8 @@ Range.defaultProps = {
 };
 
 Range.contextTypes = {
-  style: React.PropTypes.object,
-  folder: React.PropTypes.shape({
-    subscribe: React.PropTypes.func
+  style: PropTypes.object,
+  folder: PropTypes.shape({
+    subscribe: PropTypes.func
   }),
 }

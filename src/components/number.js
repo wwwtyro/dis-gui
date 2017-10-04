@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control, Number as NumberInput, NumberRange} from './components';
@@ -78,13 +80,13 @@ export default class Number extends React.PureComponent {
 }
 
 Number.propTypes = {
-  value: React.PropTypes.number,
-  min: React.PropTypes.number,
-  max: React.PropTypes.number,
-  step: React.PropTypes.number,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  value: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Number.defaultProps = {
@@ -92,5 +94,5 @@ Number.defaultProps = {
 };
 
 Number.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

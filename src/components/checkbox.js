@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control} from './components';
@@ -65,10 +67,10 @@ export default class Checkbox extends React.PureComponent {
 }
 
 Checkbox.propTypes = {
-  checked: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  checked: PropTypes.bool,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
@@ -76,5 +78,5 @@ Checkbox.defaultProps = {
 }
 
 Checkbox.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

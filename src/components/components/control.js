@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 export default class Control extends React.PureComponent {
@@ -19,5 +21,5 @@ export default class Control extends React.PureComponent {
 }
 
 Control.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 }

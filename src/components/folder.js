@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
@@ -140,10 +142,10 @@ export default class Folder extends React.PureComponent {
 }
 
 Folder.propTypes = {
-  expanded: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  expanded: PropTypes.bool,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Folder.defaultProps = {
@@ -151,12 +153,12 @@ Folder.defaultProps = {
 };
 
 Folder.childContextTypes = {
-  style: React.PropTypes.object,
-  folder: React.PropTypes.shape({
-    subscribe: React.PropTypes.func
+  style: PropTypes.object,
+  folder: PropTypes.shape({
+    subscribe: PropTypes.func
   })
 };
 
 Folder.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

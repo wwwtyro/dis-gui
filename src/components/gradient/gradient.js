@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import update from 'immutability-helper';
 
@@ -300,11 +302,11 @@ export default class Gradient extends React.PureComponent {
 }
 
 Gradient.propTypes = {
-  expanded: React.PropTypes.bool,
-  stops: React.PropTypes.array,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  expanded: PropTypes.bool,
+  stops: PropTypes.array,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Gradient.defaultProps = {
@@ -317,5 +319,5 @@ Gradient.defaultProps = {
 };
 
 Gradient.contextTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };

@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import merge from 'lodash.merge';
 
@@ -108,8 +110,8 @@ export default class GUI extends React.PureComponent {
 }
 
 GUI.propTypes = {
-  style: React.PropTypes.object,
-  expanded: React.PropTypes.bool,
+  style: PropTypes.object,
+  expanded: PropTypes.bool,
 };
 
 GUI.defaultProps = {
@@ -117,7 +119,7 @@ GUI.defaultProps = {
 }
 
 GUI.childContextTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };
 
 function calculateFontHeight(font) {

@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control, ColorRange} from './components';
@@ -151,13 +153,13 @@ export default class Color extends React.PureComponent {
 }
 
 Color.propTypes = {
-  red: React.PropTypes.number,
-  green: React.PropTypes.number,
-  blue: React.PropTypes.number,
-  expanded: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  red: PropTypes.number,
+  green: PropTypes.number,
+  blue: PropTypes.number,
+  expanded: PropTypes.bool,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Color.defaultProps = {
@@ -168,5 +170,5 @@ Color.defaultProps = {
 };
 
 Color.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };
