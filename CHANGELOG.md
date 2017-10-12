@@ -1,3 +1,8 @@
+# 2.0.10
+
+- Add /lib to version control
+- Add /src to published module
+
 # 2.0.9
 
 - Support top-level className prop
