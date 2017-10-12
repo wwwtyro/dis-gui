@@ -1,15 +1,25 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control} from './components';
 
-export default class Select extends React.Component {
+export default class Select extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
       options: this.props.options
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.options !== this.props.options) {
+      if (nextProps.options !== this.state.options) {
+        this.setState({options: nextProps.options});
+      }
     }
   }
 
@@ -68,12 +78,12 @@ export default class Select extends React.Component {
 }
 
 Select.propTypes = {
-  options: React.PropTypes.array.isRequired,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  options: PropTypes.array.isRequired,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Select.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

@@ -1,17 +1,39 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
 
 import Row from './components';
 
-export default class Folder extends React.Component {
+export default class Folder extends React.PureComponent {
 
   constructor(props) {
     super(props);
+    this.subscriptions = [];
     this.state = {
       expanded: this.props.expanded,
+    }
+  }
+  subscribe(fn) {
+    this.subscriptions.push(fn)
+  }
+  unsubscribe(fn) {
+    this.subscriptions.splice(this.subscriptions.indexOf(fn), 1);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        this.setState({expanded: nextProps.expanded});
+      }
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.expanded !== this.state.expanded) {
+      this.subscriptions.forEach(fn => fn(this.state.expanded));
     }
   }
 
@@ -94,6 +116,12 @@ export default class Folder extends React.Component {
     return merge(cloneDeep(this.context), {
       style: {
         labelWidth: this.context.style.labelWidth - 4,
+      },
+      folder: {
+        subscribe: (fn) => {
+          this.subscribe(fn);
+          return () => this.unsubscribe(fn);
+        }
       }
     });
   }
@@ -114,10 +142,10 @@ export default class Folder extends React.Component {
 }
 
 Folder.propTypes = {
-  expanded: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  expanded: PropTypes.bool,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Folder.defaultProps = {
@@ -125,9 +153,12 @@ Folder.defaultProps = {
 };
 
 Folder.childContextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object,
+  folder: PropTypes.shape({
+    subscribe: PropTypes.func
+  })
 };
 
 Folder.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

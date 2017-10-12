@@ -1,11 +1,13 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-import Number from './number.jsx';
-import Range from './range.jsx';
+import Number from './number.js';
+import Range from './range.js';
 
-export default class NumberRange extends React.Component {
+export default class NumberRange extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -76,15 +78,15 @@ export default class NumberRange extends React.Component {
 }
 
 NumberRange.propTypes = {
-  value: React.PropTypes.number.isRequired,
-  min: React.PropTypes.number.isRequired,
-  max: React.PropTypes.number.isRequired,
-  step: React.PropTypes.number,
-  width: React.PropTypes.string,
-  rangeWidth: React.PropTypes.string,
-  numberWidth: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  OnFinishChange: React.PropTypes.func,
+  value: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number,
+  width: PropTypes.string,
+  rangeWidth: PropTypes.string,
+  numberWidth: PropTypes.string,
+  onChange: PropTypes.func,
+  OnFinishChange: PropTypes.func,
 }
 
 NumberRange.defaultProps = {

@@ -1,8 +1,10 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-export default class Label extends React.Component {
+export default class Label extends React.PureComponent {
 
   render() {
     return (
@@ -28,5 +30,5 @@ export default class Label extends React.Component {
 }
 
 Label.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 }

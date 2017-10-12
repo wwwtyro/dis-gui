@@ -3,7 +3,7 @@
 import React from 'react';
 import update from 'react-addons-update';
 
-import * as dg from '../index';
+import * as dg from '../src/index';
 
 import * as gradient from './gradient';
 

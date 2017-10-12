@@ -1,8 +1,10 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-export default class Stop extends React.Component {
+export default class Stop extends React.PureComponent {
 
   render() {
     let selectScale = this.props.selected ? 1.25 : 1;
@@ -62,15 +64,15 @@ export default class Stop extends React.Component {
 }
 
 Stop.propTypes = {
-  selected: React.PropTypes.bool,
-  stop: React.PropTypes.number,
-  red: React.PropTypes.number,
-  green: React.PropTypes.number,
-  blue: React.PropTypes.number,
-  index: React.PropTypes.number.isRequired,
-  onChange: React.PropTypes.func,
-  OnFinishChange: React.PropTypes.func,
-  onClick: React.PropTypes.func,
+  selected: PropTypes.bool,
+  stop: PropTypes.number,
+  red: PropTypes.number,
+  green: PropTypes.number,
+  blue: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  onChange: PropTypes.func,
+  OnFinishChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 Stop.defaultProps = {
@@ -82,5 +84,5 @@ Stop.defaultProps = {
 }
 
 Stop.contextTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };

@@ -1,9 +1,11 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import sprintf from 'sprintf';
 
-export default class Number extends React.Component {
+export default class Number extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -89,10 +91,10 @@ export default class Number extends React.Component {
 }
 
 Number.propTypes = {
-  value: React.PropTypes.number.isRequired,
-  width: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  OnFinishChange: React.PropTypes.func,
+  value: PropTypes.number.isRequired,
+  width: PropTypes.string,
+  onChange: PropTypes.func,
+  OnFinishChange: PropTypes.func,
 }
 
 Number.defaultProps = {
@@ -100,5 +102,5 @@ Number.defaultProps = {
 }
 
 Number.contextTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 }

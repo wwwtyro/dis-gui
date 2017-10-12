@@ -1,10 +1,12 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control} from './components';
 
-export default class Button extends React.Component {
+export default class Button extends React.PureComponent {
 
   render() {
     return (
@@ -42,10 +44,10 @@ export default class Button extends React.Component {
 }
 
 Button.propTypes = {
-  label: React.PropTypes.string.isRequired,
-  onClick: React.PropTypes.func,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 }
 
 Button.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 }

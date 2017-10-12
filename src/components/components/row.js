@@ -1,8 +1,10 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-export default class Row extends React.Component {
+export default class Row extends React.PureComponent {
 
   render() {
     return (
@@ -24,5 +26,5 @@ export default class Row extends React.Component {
 }
 
 Row.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 }

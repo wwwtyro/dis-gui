@@ -1,8 +1,10 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-export default class Range extends React.Component {
+export default class Range extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -61,6 +63,14 @@ export default class Range extends React.Component {
 
   componentDidMount() {
     this.updateLayout();
+    if (this.context.folder) {
+      this.unsubscribeFolder = this.context.folder.subscribe((expanded) => {
+        if (expanded) this.forceUpdate();
+      })
+    }
+  }
+  componentWillUnmount() {
+    if (this.unsubscribeFolder) this.unsubscribeFolder();
   }
 
   updateLayout() {
@@ -142,13 +152,13 @@ export default class Range extends React.Component {
 }
 
 Range.propTypes = {
-  value: React.PropTypes.number.isRequired,
-  min: React.PropTypes.number.isRequired,
-  max: React.PropTypes.number.isRequired,
-  step: React.PropTypes.number,
-  width: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  OnFinishChange: React.PropTypes.func,
+  value: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number,
+  width: PropTypes.string,
+  onChange: PropTypes.func,
+  OnFinishChange: PropTypes.func,
 }
 
 Range.defaultProps = {
@@ -156,5 +166,8 @@ Range.defaultProps = {
 };
 
 Range.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object,
+  folder: PropTypes.shape({
+    subscribe: PropTypes.func
+  }),
 }

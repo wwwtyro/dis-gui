@@ -1,8 +1,10 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-export default class Control extends React.Component {
+export default class Control extends React.PureComponent {
 
   render() {
     return (
@@ -19,5 +21,5 @@ export default class Control extends React.Component {
 }
 
 Control.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 }

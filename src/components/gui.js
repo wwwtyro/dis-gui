@@ -1,5 +1,7 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import merge from 'lodash.merge';
 
@@ -22,7 +24,7 @@ let defaultStyle = {
   },
 };
 
-export default class GUI extends React.Component {
+export default class GUI extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -33,6 +35,14 @@ export default class GUI extends React.Component {
     this.style.computed.minRowHeight = this.style.computed.itemHeight + this.style.paddingY * 2;
     this.state = {
       expanded: this.props.expanded
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        this.setState({expanded: nextProps.expanded});
+      }
     }
   }
 
@@ -62,7 +72,7 @@ export default class GUI extends React.Component {
       style.top = '0px';
     }
     return (
-      <div style={style}>
+      <div style={style} className={this.props.className}>
         <div style={{display: this.state.expanded ? 'block' : 'none'}}>
           {this.props.children}
         </div>
@@ -100,8 +110,9 @@ export default class GUI extends React.Component {
 }
 
 GUI.propTypes = {
-  style: React.PropTypes.object,
-  expanded: React.PropTypes.bool,
+  style: PropTypes.object,
+  expanded: PropTypes.bool,
+  className: PropTypes.string
 };
 
 GUI.defaultProps = {
@@ -109,7 +120,7 @@ GUI.defaultProps = {
 }
 
 GUI.childContextTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };
 
 function calculateFontHeight(font) {

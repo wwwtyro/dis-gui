@@ -1,10 +1,12 @@
 'use strict';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
 import {Row, Label, Control, ColorRange} from './components';
 
-export default class Color extends React.Component {
+export default class Color extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -13,6 +15,38 @@ export default class Color extends React.Component {
       green: this.props.green,
       blue: this.props.blue,
       expanded: this.props.expanded,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const nextState = {};
+    let hasChange = false;
+    if (nextProps.red !== this.props.red) {
+      if (nextProps.red !== this.state.red) {
+        nextState.red = nextProps.red;
+        hasChange = true;
+      }
+    }
+    if (nextProps.green !== this.props.green) {
+      if (nextProps.green !== this.state.green) {
+        nextState.green = nextProps.green;
+        hasChange = true;
+      }
+    }
+    if (nextProps.blue !== this.props.blue) {
+      if (nextProps.blue !== this.state.blue) {
+        nextState.blue = nextProps.blue;
+        hasChange = true;
+      }
+    }
+    if (nextProps.expanded !== this.props.expanded) {
+      if (nextProps.expanded !== this.state.expanded) {
+        nextState.expanded = nextProps.expanded;
+        hasChange = true;
+      }
+    }
+    if (hasChange) {
+      this.setState(nextState);
     }
   }
 
@@ -119,13 +153,13 @@ export default class Color extends React.Component {
 }
 
 Color.propTypes = {
-  red: React.PropTypes.number,
-  green: React.PropTypes.number,
-  blue: React.PropTypes.number,
-  expanded: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  red: PropTypes.number,
+  green: PropTypes.number,
+  blue: PropTypes.number,
+  expanded: PropTypes.bool,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 Color.defaultProps = {
@@ -136,5 +170,5 @@ Color.defaultProps = {
 };
 
 Color.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };

@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-import NumberRange from './number-range.jsx';
+import NumberRange from './number-range.js';
 
-export default class ColorRange extends React.Component {
+export default class ColorRange extends React.PureComponent {
 
   render() {
     return (
@@ -57,12 +58,12 @@ export default class ColorRange extends React.Component {
 }
 
 ColorRange.propTypes = {
-  label: React.PropTypes.string,
-  value: React.PropTypes.number.isRequired,
-  onChange: React.PropTypes.func,
-  onFinishChange: React.PropTypes.func,
+  label: PropTypes.string,
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func,
+  onFinishChange: PropTypes.func,
 };
 
 ColorRange.contextTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };
