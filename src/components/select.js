@@ -29,7 +29,7 @@ export default class Select extends React.PureComponent {
         <Label>{this.props.label}</Label>
         <Control>
           <select
-            onChange={this.handleChange.bind(this)}
+            onChange={this.handleChange}
             value={this.props.value}
             style={{
               backgroundColor: this.context.style.lowlight,
@@ -47,7 +47,7 @@ export default class Select extends React.PureComponent {
               cursor: 'pointer',
             }}
           >
-            {this.state.options.map(function(opt,index) {
+            {this.state.options.map((opt, index) => {
               return (
                 <option
                   value={opt}
@@ -59,21 +59,21 @@ export default class Select extends React.PureComponent {
                   {opt}
                 </option>
               )
-            }.bind(this))}
+            })}
           </select>
         </Control>
       </Row>
     )
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     if (this.props.onChange) {
       this.props.onChange(e.target.value);
     }
     if (this.props.onFinishChange) {
       this.props.onFinishChange(e.target.value);
     }
-  }
+  };
 
 }
 

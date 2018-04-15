@@ -43,7 +43,7 @@ export default class Gradient extends React.PureComponent {
             <div>
               <div
                 ref='stopfield'
-                onMouseDown={this.handleStopFieldMouseDown.bind(this)}
+                onMouseDown={this.handleStopFieldMouseDown }
                 style={{
                   width: `${this.context.style.controlWidth}px`,
                   height: `${stopSide*1.875}px`,
@@ -53,7 +53,7 @@ export default class Gradient extends React.PureComponent {
                   cursor: 'pointer',
                 }}
               >
-                {this.state.stops.map(function(stop, index) {
+                {this.state.stops.map((stop, index) => {
                   return (
                     <Stop
                       key={'stop' + index}
@@ -68,7 +68,7 @@ export default class Gradient extends React.PureComponent {
                       onFinishChange={this.handleFinishChange.bind(this)}
                     />
                   )
-                }.bind(this))}
+                })}
               </div>
               <ColorRange
                 label='Red'
@@ -90,7 +90,7 @@ export default class Gradient extends React.PureComponent {
               />
               { this.state.stops.length > 1 &&
                 <div
-                  onClick={this.handleRemoveStop.bind(this)}
+                  onClick={this.handleRemoveStop}
                   style={{
                     backgroundColor: this.context.style.lowlight,
                     color: this.context.style.highlight,
@@ -116,7 +116,7 @@ export default class Gradient extends React.PureComponent {
     )
   }
 
-  handleStopFieldMouseDown(e) {
+  handleStopFieldMouseDown = (e) => {
     if (e.target !== this.refs.stopfield) return;
     let stops = this.state.stops.slice();
     let rect = e.target.getBoundingClientRect();
@@ -138,9 +138,9 @@ export default class Gradient extends React.PureComponent {
       this.handleChange();
       this.handleFinishChange()
     });
-  }
+  };
 
-  handleRemoveStop() {
+  handleRemoveStop = () => {
     let stops = this.state.stops.slice();
     stops.splice(this.state.selectedStop, 1);
     let newState = update(this.state, {
@@ -153,9 +153,9 @@ export default class Gradient extends React.PureComponent {
       this.handleChange();
       this.handleFinishChange()
     });
-  }
+  };
 
-  handleChangeRed(value) {
+  handleChangeRed = (value) => {
     let stops = this.state.stops.slice();
     stops[this.state.selectedStop].red = parseInt(value);
     let newState = update(this.state, {
@@ -164,9 +164,9 @@ export default class Gradient extends React.PureComponent {
       }
     })
     this.setState(newState, this.handleChange);
-  }
+  };
 
-  handleChangeGreen(value) {
+  handleChangeGreen = (value) => {
     let stops = this.state.stops.slice();
     stops[this.state.selectedStop].green = parseInt(value);
     let newState = update(this.state, {
@@ -175,9 +175,9 @@ export default class Gradient extends React.PureComponent {
       }
     })
     this.setState(newState, this.handleChange);
-  }
+  };
 
-  handleChangeBlue(value) {
+  handleChangeBlue = (value) => {
     let stops = this.state.stops.slice();
     stops[this.state.selectedStop].blue = parseInt(value);
     let newState = update(this.state, {
@@ -186,19 +186,19 @@ export default class Gradient extends React.PureComponent {
       }
     })
     this.setState(newState, this.handleChange);
-  }
+  };
 
-  handleChange() {
+  handleChange = () => {
     if (this.props.onChange) {
       this.props.onChange(this.getCleanStops());
     }
-  }
+  };
 
-  handleFinishChange() {
+  handleFinishChange = () => {
     if (this.props.onFinishChange) {
       this.props.onFinishChange(this.getCleanStops());
     }
-  }
+  };
 
   componentDidMount() {
     this.updateCanvas();
@@ -220,13 +220,13 @@ export default class Gradient extends React.PureComponent {
     });
   }
 
-  handleCanvasClick() {
+  handleCanvasClick = () => {
     this.setState({
       expanded: !this.state.expanded,
     });
-  }
+  };
 
-  handleStopChange(e) {
+  handleStopChange = (e) => {
     let stops = this.state.stops.slice();
     stops[e.index].stop = e.stop;
     let newState = update(this.state, {
@@ -235,13 +235,13 @@ export default class Gradient extends React.PureComponent {
       }
     });
     this.setState(newState, this.handleChange);
-  }
+  };
 
-  handleStopClick(e) {
+  handleStopClick = (e) => {
     this.setState({
       selectedStop: e.index,
     });
-  }
+  };
 
   getCleanStops() {
     // Returns this.state.stops, bounded to [0..1] and sorted.
