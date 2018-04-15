@@ -1,6 +1,6 @@
 {
   "name": "dis-gui",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "An extensible, styleable, & React-based controller library inspired by the venerable dat-gui.",
   "main": "lib/index.js",
   "scripts": {

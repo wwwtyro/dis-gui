@@ -1,3 +1,7 @@
+# 2.0.11
+
+- Make `dg.Select` controlled
+
 # 2.0.10
 
 - Add /lib to version control
