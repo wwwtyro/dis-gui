@@ -13,6 +13,8 @@ export default class Select extends React.PureComponent {
     this.state = {
       options: this.props.options
     }
+    this.handleChange = this.handleChange.bind(this)
+    this._mapOption = this._mapOption.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,13 +25,27 @@ export default class Select extends React.PureComponent {
     }
   }
 
+  _mapOption(opt,index) {
+    return (
+      <option
+        value={opt}
+        key={opt + index}
+        style={{
+          backgroundColor: this.context.style.font,
+        }}
+      >
+        {opt}
+      </option>
+    )
+  }
+
   render() {
     return (
       <Row>
         <Label>{this.props.label}</Label>
         <Control>
           <select
-            onChange={this.handleChange.bind(this)}
+            onChange={this.handleChange}
             value={this.props.value}
             style={{
               backgroundColor: this.context.style.lowlight,
@@ -47,19 +63,7 @@ export default class Select extends React.PureComponent {
               cursor: 'pointer',
             }}
           >
-            {this.state.options.map(function(opt,index) {
-              return (
-                <option
-                  value={opt}
-                  key={opt + index}
-                  style={{
-                    backgroundColor: this.context.style.font,
-                  }}
-                >
-                  {opt}
-                </option>
-              )
-            }.bind(this))}
+            {this.state.options.map(this._mapOption)}
           </select>
         </Control>
       </Row>
