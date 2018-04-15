@@ -41,7 +41,7 @@ export default class GUI extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     if (nextProps.expanded !== this.props.expanded) {
       if (nextProps.expanded !== this.state.expanded) {
-        this.setState({expanded: nextProps.expanded});
+        this.setState({expanded: nextProps.expanded || nextProps.alwaysOpen});
       }
     }
   }
@@ -71,12 +71,14 @@ export default class GUI extends React.PureComponent {
     } else {
       style.top = '0px';
     }
+    const expandText = this.state.expanded ? 'Close Controls' : 'Open Controls'
     return (
       <div style={style} className={this.props.className}>
         <div style={{display: this.state.expanded ? 'block' : 'none'}}>
           {this.props.children}
         </div>
-        <Row>
+        {!this.props.alwaysOpen && 
+          <Row>
             <div
               onClick={this.handleCloseControls.bind(this)}
               style={{
@@ -87,10 +89,10 @@ export default class GUI extends React.PureComponent {
                 cursor: 'pointer',
               }}
             >
-              {this.state.expanded && <span style={noSelect}>Close Controls</span>}
-              {!this.state.expanded && <span style={noSelect}>Open Controls</span>}
+              <span style={noSelect}>{expandText}</span>
             </div>
-        </Row>
+          </Row>
+        }
       </div>
     )
   }
@@ -112,11 +114,13 @@ export default class GUI extends React.PureComponent {
 GUI.propTypes = {
   style: PropTypes.object,
   expanded: PropTypes.bool,
+  alwaysOpen: PropTypes.bool,
   className: PropTypes.string
 };
 
 GUI.defaultProps = {
   expanded: true,
+  alwaysOpen: false
 }
 
 GUI.childContextTypes = {
