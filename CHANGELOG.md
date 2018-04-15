@@ -1,3 +1,7 @@
+# 2.1.0
+
+* Add alwaysOpen option to Gui wrapper (https://github.com/wwwtyro/dis-gui/pull/7)
+
 # 2.0.12
 
 * Fix scope binding issues by using arrow syntax
