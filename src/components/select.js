@@ -30,7 +30,7 @@ export default class Select extends React.PureComponent {
         <Control>
           <select
             onChange={this.handleChange.bind(this)}
-            defaultValue={this.props.value}
+            value={this.props.value}
             style={{
               backgroundColor: this.context.style.lowlight,
               color: this.context.style.highlight,
