@@ -11,16 +11,12 @@ export default class Range extends React.PureComponent {
     this.state = {
       value: this.props.value,
     };
-
-    this.containerRef = React.createRef();
-    this.trackRef = React.createRef();
-    this.thumbRef = React.createRef();
   }
 
   render() {
     return (
       <div
-        ref={this.containerRef}
+        ref={(ref) => this.containerRef = ref}
         onMouseDown={this.onMouseDown.bind(this)}
         style={{
           width: this.props.width,
@@ -29,7 +25,7 @@ export default class Range extends React.PureComponent {
         }}
       >
         <div
-          ref={this.trackRef}
+          ref={(ref) => this.trackRef = ref}
           style={{
             position: 'absolute',
             width: '100%',
@@ -39,7 +35,7 @@ export default class Range extends React.PureComponent {
           }}
         ></div>
         <div
-          ref={this.thumbRef}
+          ref={(ref) => this.thumbRef = ref}
           style={{
             position: 'absolute',
             backgroundColor: this.context.style.lowlight,
@@ -78,12 +74,12 @@ export default class Range extends React.PureComponent {
   }
 
   updateLayout() {
-    let container = this.containerRef.current;
+    let container = this.containerRef;
     let cHeight = container.clientHeight;
     let cWidth = container.clientWidth;
-    let track = this.trackRef.current;
+    let track = this.trackRef;
     track.style.top = `${cHeight/2 - 0.5}px`;
-    let thumb = this.thumbRef.current;
+    let thumb = this.thumbRef;
     let thumbSize = this.context.style.computed.fontHeight * 0.9;
     thumb.style.top = `${this.context.style.computed.itemHeight/2 - thumbSize/2}px`;
     let frac = (this.state.value - this.props.min)/(this.props.max - this.props.min);
@@ -96,7 +92,7 @@ export default class Range extends React.PureComponent {
   }
 
   moveThumb(pageX) {
-    let container = this.containerRef.current;
+    let container = this.containerRef;
     let cWidth = container.clientWidth;
     let thumbSize = this.context.style.computed.fontHeight * 0.9;
     let x = pageX - container.getBoundingClientRect().left;

@@ -5,15 +5,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export default class Stop extends React.PureComponent {
-  stopRef = React.createRef();
-
   render() {
     let selectScale = this.props.selected ? 1.25 : 1;
     let s = this.context.style.computed.fontHeight/58 * selectScale;
     let border = this.context.style.label.fontColor;
     return (
       <svg
-        ref={this.stopRef}
+        ref={(ref) => this.stopRef = ref}
         width={`${58 * s}px`}
         height={`${87 * s}px`}
         onMouseDown={this.handleMouseDown.bind(this)}
@@ -39,7 +37,7 @@ export default class Stop extends React.PureComponent {
 
   handleMouseDown(e) {
     e.preventDefault();
-    let field = this.stopRef.current.parentNode;
+    let field = this.stopRef.parentNode;
     let fieldRect = field.getBoundingClientRect();
     let onMouseMove = function(e) {
       let x = e.pageX - fieldRect.left;

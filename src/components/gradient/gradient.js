@@ -17,9 +17,6 @@ export default class Gradient extends React.PureComponent {
       stops: this.props.stops,
       selectedStop: 0
     }
-
-    this.canvasRef = React.createRef();
-    this.stopFieldRef = React.createRef();
   }
 
   render() {
@@ -29,7 +26,7 @@ export default class Gradient extends React.PureComponent {
         <Label>{this.props.label}</Label>
         <Control>
           <canvas
-            ref={this.canvasRef}
+            ref={(ref) => this.canvasRef = ref}
             onClick={this.handleCanvasClick.bind(this)}
             style={{
               width: `${this.context.style.controlWidth}px`,
@@ -45,7 +42,7 @@ export default class Gradient extends React.PureComponent {
           {this.state.expanded &&
             <div>
               <div
-                ref={this.stopFieldRef}
+                ref={(ref) => this.stopFieldRef = ref}
                 onMouseDown={this.handleStopFieldMouseDown }
                 style={{
                   width: `${this.context.style.controlWidth}px`,
@@ -120,7 +117,7 @@ export default class Gradient extends React.PureComponent {
   }
 
   handleStopFieldMouseDown = (e) => {
-    if (e.target !== this.stopFieldRef.current) return;
+    if (e.target !== this.stopFieldRef) return;
     let stops = this.state.stops.slice();
     let rect = e.target.getBoundingClientRect();
     let stop = (e.pageX - rect.left)/rect.width;
@@ -290,7 +287,7 @@ export default class Gradient extends React.PureComponent {
 
   updateCanvas() {
     let stops = this.getCleanStops()
-    let canvas = this.canvasRef.current;
+    let canvas = this.canvasRef;
     canvas.width = 512;
     canvas.height = 1;
     let ctx = canvas.getContext('2d');
