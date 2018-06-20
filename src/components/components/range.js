@@ -16,7 +16,7 @@ export default class Range extends React.PureComponent {
   render() {
     return (
       <div
-        ref='container'
+        ref={(ref) => this.containerRef = ref}
         onMouseDown={this.onMouseDown.bind(this)}
         style={{
           width: this.props.width,
@@ -25,7 +25,7 @@ export default class Range extends React.PureComponent {
         }}
       >
         <div
-          ref='track'
+          ref={(ref) => this.trackRef = ref}
           style={{
             position: 'absolute',
             width: '100%',
@@ -35,7 +35,7 @@ export default class Range extends React.PureComponent {
           }}
         ></div>
         <div
-          ref='thumb'
+          ref={(ref) => this.thumbRef = ref}
           style={{
             position: 'absolute',
             backgroundColor: this.context.style.lowlight,
@@ -74,12 +74,12 @@ export default class Range extends React.PureComponent {
   }
 
   updateLayout() {
-    let container = this.refs.container;
+    let container = this.containerRef;
     let cHeight = container.clientHeight;
     let cWidth = container.clientWidth;
-    let track = this.refs.track;
+    let track = this.trackRef;
     track.style.top = `${cHeight/2 - 0.5}px`;
-    let thumb = this.refs.thumb;
+    let thumb = this.thumbRef;
     let thumbSize = this.context.style.computed.fontHeight * 0.9;
     thumb.style.top = `${this.context.style.computed.itemHeight/2 - thumbSize/2}px`;
     let frac = (this.state.value - this.props.min)/(this.props.max - this.props.min);
@@ -92,7 +92,7 @@ export default class Range extends React.PureComponent {
   }
 
   moveThumb(pageX) {
-    let container = this.refs.container;
+    let container = this.containerRef;
     let cWidth = container.clientWidth;
     let thumbSize = this.context.style.computed.fontHeight * 0.9;
     let x = pageX - container.getBoundingClientRect().left;
