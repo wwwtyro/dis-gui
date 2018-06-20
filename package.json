@@ -4,8 +4,8 @@
   "description": "An extensible, styleable, & React-based controller library inspired by the venerable dat-gui.",
   "main": "lib/index.js",
   "scripts": {
-    "start": "budo example/main.js:bundle.js -d example --live -- -t [ babelify --presets [ es2015 react ] ]",
-    "build:example": "browserify example/main.js -o gh-pages/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "start": "budo example/main.js:bundle.js -d example --live -- -t [ babelify ]",
+    "build:example": "browserify example/main.js -o gh-pages/bundle.js -t [ babelify ]",
     "build": "babel src --out-dir lib",
     "prepublishOnly": "yarn build"
   },
@@ -17,9 +17,9 @@
     "sprintf": "^0.1.5"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-addons-update": "^15.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -33,7 +33,7 @@
     "budo": "^9.0.0",
     "esdoc": "^0.5.2",
     "gl-mat4": "^1.1.4",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.2",
     "regl": "^1.1.1"
   },
   "keywords": [
